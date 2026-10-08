@@ -1,0 +1,7 @@
+/* El alto lo define quien lo usa; el ancho sale del viewBox */
+.icon {
+  display: block;
+  flex: none;
+  height: 1em;
+  width: auto;
+}

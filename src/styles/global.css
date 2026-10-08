@@ -1,0 +1,57 @@
+/* ---------- Variables de diseño ---------- */
+:root {
+  --bg: #000;
+  --fg: #f4f4f2;
+  --fg-muted: #a9a9a6;
+  --fg-soft: #d6d6d3;
+  --line: rgba(244, 244, 242, 0.25);
+  --mint: #b4f1cf;
+  --ease: cubic-bezier(0.2, 0.8, 0.2, 1);
+
+  --font-serif: 'Instrument Serif', Georgia, serif;
+  --font-mono: 'Geist Mono', ui-monospace, 'SF Mono', Menlo, monospace;
+}
+
+/* ---------- Reset base ---------- */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  height: 100%;
+  overflow: hidden;
+  background: var(--bg);
+}
+
+body {
+  font-family: var(--font-serif);
+  color: var(--fg);
+  -webkit-font-smoothing: antialiased;
+}
+
+a {
+  color: var(--fg);
+  text-decoration: none;
+}
+
+a:hover {
+  color: #fff;
+}
+
+::selection {
+  background: var(--fg);
+  color: #000;
+}
+
+/* ---------- Accesibilidad: menos movimiento ---------- */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    transition-duration: 0.01ms !important;
+  }
+}

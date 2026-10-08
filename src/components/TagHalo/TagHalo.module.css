@@ -1,0 +1,88 @@
+/* ---------- Etiqueta ---------- */
+.tag {
+  --x: 50%;
+  --y: 50%;
+  --accent: var(--mint);
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.7em;
+  height: 36px;
+  padding: 0 15px 0 13px;
+  font: 400 12px/1 var(--font-mono);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.78);
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.06), rgba(255, 255, 255, 0.015));
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 999px;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.06);
+  cursor: default;
+  transition:
+    color 0.5s var(--ease),
+    border-color 0.5s var(--ease);
+}
+
+/* ---------- Brillo que sigue al cursor (teñido con el color de la marca) ---------- */
+.tag::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background: radial-gradient(
+    80px circle at var(--x) var(--y),
+    color-mix(in srgb, var(--accent) 28%, transparent),
+    transparent 70%
+  );
+  opacity: 0;
+  transition: opacity 0.5s var(--ease);
+}
+
+/* ---------- Logo ---------- */
+.icon {
+  font-size: 15px;
+  color: rgba(255, 255, 255, 0.9);
+  transition: color 0.5s var(--ease);
+}
+
+.label {
+  /* Compensa el espacio extra que deja el tracking al final */
+  margin-right: -0.06em;
+}
+
+/* ---------- Variante solo logo (el logo ya incluye el nombre) ---------- */
+.logoOnly {
+  padding: 0 16px;
+}
+
+.logoOnly .icon {
+  font-size: 19px;
+}
+
+.srOnly {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+/* ---------- Estado hover ---------- */
+.tag:hover {
+  color: #fff;
+  border-color: color-mix(in srgb, var(--accent) 45%, transparent);
+}
+
+.tag:hover::before {
+  opacity: 1;
+}
+
+.tag:hover .icon {
+  color: var(--accent);
+}

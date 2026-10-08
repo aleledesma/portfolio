@@ -1,0 +1,11 @@
+/* Contenido a pantalla completa: hero centrado y footer abajo */
+.main {
+  position: relative;
+  z-index: 2;
+  height: 100vh;
+  height: 100dvh;
+  padding: clamp(24px, 5vw, 72px);
+  display: grid;
+  grid-template-rows: minmax(0, 1fr) auto;
+  pointer-events: none;
+}
