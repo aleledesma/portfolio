@@ -1,0 +1,16 @@
+.eyebrow {
+  margin: 0;
+  font-weight: 400;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  font-style: italic;
+  font-size: clamp(20px, 2.2vw, 28px);
+  line-height: 1;
+}
+
+.rule {
+  width: 28px;
+  height: 1px;
+  background: rgba(244, 244, 242, 0.6);
+}

@@ -1,5 +1,6 @@
-import type { CSSProperties, PointerEvent } from 'react'
+import type { CSSProperties } from 'react'
 import { brandIcons, type BrandIconName } from '../../data/brandIcons'
+import { trackPointer } from '../../utils/trackPointer'
 import { BrandIcon } from '../BrandIcon/BrandIcon'
 import styles from './TagHalo.module.css'
 
@@ -7,14 +8,6 @@ interface TagHaloProps {
   label: string
   icon: BrandIconName
   logoOnly?: boolean
-}
-
-// Mueve el centro del halo a la posición del cursor (vía variables CSS, sin re-render)
-function trackPointer(e: PointerEvent<HTMLSpanElement>) {
-  const el = e.currentTarget
-  const r = el.getBoundingClientRect()
-  el.style.setProperty('--x', `${e.clientX - r.left}px`)
-  el.style.setProperty('--y', `${e.clientY - r.top}px`)
 }
 
 // Etiqueta con el logo de la tecnología: en hover toma el color de la marca
