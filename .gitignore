@@ -22,3 +22,8 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Variables de entorno (contienen el token de GitHub)
+.env
+.env.*
+!.env.example

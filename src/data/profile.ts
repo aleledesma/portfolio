@@ -1,4 +1,5 @@
 import type { BrandIconName } from "./brandIcons"
+import { githubUser } from "./github"
 
 // Contenido del portfolio: editar acá para cambiar textos, etiquetas y enlaces
 
@@ -37,4 +38,4 @@ export const contactLinks: ContactLink[] = [
   { label: "Email", href: "mailto:aleledesma1212@gmail.com" },
 ]
 
-export const githubUrl = "https://github.com/aleledesma"
+export const githubUrl = `https://github.com/${githubUser}`
