@@ -2,10 +2,14 @@ import { contactLinks, githubUrl } from '../../data/profile'
 import { BrandIcon } from '../BrandIcon/BrandIcon'
 import styles from './ContactFooter.module.css'
 
+interface ContactFooterProps {
+  className?: string
+}
+
 // Pie con enlaces de contacto y botón de GitHub
-export function ContactFooter() {
+export function ContactFooter({ className }: ContactFooterProps) {
   return (
-    <footer className={styles.footer}>
+    <footer className={[styles.footer, className].filter(Boolean).join(' ')}>
       {/* Enlaces de contacto */}
       <div className={styles.contact}>
         <span className={styles.label}>Contacto</span>

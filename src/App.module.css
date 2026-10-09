@@ -1,4 +1,5 @@
-/* Contenido a pantalla completa: hero centrado y footer abajo */
+/* ---------- Layout a pantalla completa (escritorio) ---------- */
+/* Contenido por encima del fondo; cada bloque reactiva los eventos del puntero */
 .main {
   position: relative;
   z-index: 2;
@@ -6,6 +7,37 @@
   height: 100dvh;
   padding: clamp(24px, 5vw, 72px);
   display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 620px);
   grid-template-rows: minmax(0, 1fr) auto;
+  grid-template-areas:
+    'hero repos'
+    'footer footer';
+  gap: clamp(28px, 4vh, 48px) clamp(32px, 5vw, 96px);
   pointer-events: none;
+}
+
+.hero {
+  grid-area: hero;
+}
+
+.repos {
+  grid-area: repos;
+}
+
+.footer {
+  grid-area: footer;
+}
+
+/* ---------- Pantallas angostas: una columna con scroll ---------- */
+@media (max-width: 1023px) {
+  .main {
+    height: auto;
+    min-height: 100dvh;
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-rows: auto;
+    grid-template-areas:
+      'hero'
+      'repos'
+      'footer';
+  }
 }

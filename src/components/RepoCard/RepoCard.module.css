@@ -1,0 +1,168 @@
+/* ---------- Tarjeta (estructura de GitHub + vidrio y halo propios) ---------- */
+.card {
+  /* Colores tomados del tema oscuro de GitHub */
+  --gh-link: #4493f8;
+  --gh-muted: #9198a1;
+  --gh-border: rgba(240, 246, 252, 0.16);
+
+  --x: 50%;
+  --y: 50%;
+  --accent: var(--mint);
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  padding: 16px;
+  font: 400 12px/1.5 var(--font-sans);
+  color: var(--gh-muted);
+  background: rgba(13, 17, 23, 0.55);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid var(--gh-border);
+  border-radius: 6px;
+  transition: border-color 0.5s var(--ease);
+}
+
+/* Halo que sigue al cursor, teñido con el color del lenguaje */
+.card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background: radial-gradient(
+    200px circle at var(--x) var(--y),
+    color-mix(in srgb, var(--accent) 16%, transparent),
+    transparent 70%
+  );
+  opacity: 0;
+  transition: opacity 0.5s var(--ease);
+}
+
+.card:hover {
+  border-color: color-mix(in srgb, var(--accent) 45%, var(--gh-border));
+}
+
+.card:hover::before {
+  opacity: 1;
+}
+
+/* Foco de teclado visible sobre toda la tarjeta */
+.card:has(.link:focus-visible) {
+  outline: 2px solid var(--gh-link);
+  outline-offset: -2px;
+}
+
+/* ---------- Encabezado ---------- */
+.header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-width: 0;
+}
+
+.repoIcon {
+  flex: none;
+  color: var(--gh-muted);
+}
+
+.name {
+  min-width: 0;
+  margin: 0;
+  font: 600 14px/1.5 var(--font-sans);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* El enlace se estira para que toda la tarjeta sea clickeable */
+.link {
+  color: var(--gh-link);
+  outline: none;
+}
+
+.link:hover {
+  color: var(--gh-link);
+  text-decoration: underline;
+}
+
+.link::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+}
+
+.owner {
+  font-weight: 400;
+}
+
+/* Etiqueta de visibilidad ("Public") */
+.label {
+  flex: none;
+  padding: 0 7px;
+  font: 500 12px/18px var(--font-sans);
+  color: var(--gh-muted);
+  border: 1px solid var(--gh-border);
+  border-radius: 2em;
+}
+
+/* ---------- Descripción ---------- */
+.description {
+  margin: 8px 0 0;
+  text-wrap: pretty;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  overflow: hidden;
+}
+
+/* ---------- Pie con lenguaje y estadísticas ---------- */
+.meta {
+  margin-top: auto;
+  padding-top: 16px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 4px 16px;
+}
+
+.stat,
+.statLink,
+.demo {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--accent);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Enlaces del pie: por encima del enlace estirado, azules en hover como en GitHub */
+.statLink,
+.demo {
+  position: relative;
+  z-index: 2;
+  color: var(--gh-muted);
+}
+
+.statLink:hover,
+.demo:hover {
+  color: var(--gh-link);
+}
+
+/* Toque propio: el acceso a la demo usa la mono de la app */
+.demo {
+  margin-left: auto;
+  font: 400 10.5px/1 var(--font-mono);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}

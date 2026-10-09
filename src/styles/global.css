@@ -9,6 +9,7 @@
   --ease: cubic-bezier(0.2, 0.8, 0.2, 1);
 
   --font-serif: 'Instrument Serif', Georgia, serif;
+  --font-sans: 'Geist', system-ui, -apple-system, 'Segoe UI', sans-serif;
   --font-mono: 'Geist Mono', ui-monospace, 'SF Mono', Menlo, monospace;
 }
 
@@ -22,9 +23,11 @@
 html,
 body {
   margin: 0;
-  height: 100%;
-  overflow: hidden;
   background: var(--bg);
+}
+
+html {
+  scrollbar-color: rgba(255, 255, 255, 0.2) transparent;
 }
 
 body {

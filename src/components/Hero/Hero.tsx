@@ -1,16 +1,17 @@
 import { profile, tags } from '../../data/profile'
+import { Eyebrow } from '../Eyebrow/Eyebrow'
 import { TagHalo } from '../TagHalo/TagHalo'
 import styles from './Hero.module.css'
 
+interface HeroProps {
+  className?: string
+}
+
 // Presentación principal: rol, nombre, bio y etiquetas de tecnologías
-export function Hero() {
+export function Hero({ className }: HeroProps) {
   return (
-    <section className={styles.hero}>
-      {/* Rol con línea decorativa */}
-      <div className={styles.eyebrow}>
-        <span className={styles.rule} aria-hidden="true" />
-        <span>{profile.role}</span>
-      </div>
+    <section className={[styles.hero, className].filter(Boolean).join(' ')}>
+      <Eyebrow>{profile.role}</Eyebrow>
 
       <h1 className={styles.name}>{profile.name}</h1>
 
