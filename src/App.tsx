@@ -1,4 +1,5 @@
 import { ContactFooter } from "./components/ContactFooter/ContactFooter"
+import { ContributionGraph } from "./components/ContributionGraph/ContributionGraph"
 import { DotMatrixBackground } from "./components/DotMatrixBackground/DotMatrixBackground"
 import { Hero } from "./components/Hero/Hero"
 import { PinnedRepos } from "./components/PinnedRepos/PinnedRepos"
@@ -14,10 +15,13 @@ export default function App() {
       <DotMatrixBackground blur={1.5} />
       <Vignette opacity={1} />
 
-      {/* Contenido: hero a la izquierda, repos a la derecha y footer abajo */}
+      {/* Contenido: hero a la izquierda, actividad de GitHub a la derecha y footer abajo */}
       <main className={styles.main}>
         <Hero className={styles.hero} />
-        <PinnedRepos username={githubUser} className={styles.repos} />
+        <aside className={styles.side}>
+          <PinnedRepos username={githubUser} className={styles.repos} />
+          <ContributionGraph username={githubUser} />
+        </aside>
         <ContactFooter className={styles.footer} />
       </main>
     </>

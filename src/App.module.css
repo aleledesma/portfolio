@@ -10,7 +10,7 @@
   grid-template-columns: minmax(0, 1fr) minmax(0, 620px);
   grid-template-rows: minmax(0, 1fr) auto;
   grid-template-areas:
-    'hero repos'
+    'hero side'
     'footer footer';
   gap: clamp(28px, 4vh, 48px) clamp(32px, 5vw, 96px);
   pointer-events: none;
@@ -20,8 +20,20 @@
   grid-area: hero;
 }
 
+/* Columna derecha: repos fijados + contribuciones, centrada sin pasarse de la pantalla */
+.side {
+  grid-area: side;
+  align-self: center;
+  min-height: 0;
+  max-height: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: clamp(20px, 3.5vh, 32px);
+}
+
+/* Los repos ceden alto (scroll interno) si la pantalla es baja */
 .repos {
-  grid-area: repos;
+  min-height: 0;
 }
 
 .footer {
@@ -37,7 +49,7 @@
     grid-template-rows: auto;
     grid-template-areas:
       'hero'
-      'repos'
+      'side'
       'footer';
   }
 }

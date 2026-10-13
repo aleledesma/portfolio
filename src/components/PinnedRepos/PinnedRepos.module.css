@@ -1,8 +1,5 @@
-/* Columna derecha: centrada en alto y sin pasarse de la pantalla */
 .section {
-  align-self: center;
   min-height: 0;
-  max-height: 100%;
   display: flex;
   flex-direction: column;
   gap: clamp(14px, 2.4vh, 24px);
