@@ -8,6 +8,12 @@
   --mint: #b4f1cf;
   --ease: cubic-bezier(0.2, 0.8, 0.2, 1);
 
+  /* Paleta del tema oscuro de GitHub (tarjetas de repos y contribuciones) */
+  --gh-link: #4493f8;
+  --gh-muted: #9198a1;
+  --gh-border: rgba(240, 246, 252, 0.16);
+  --gh-surface: rgba(13, 17, 23, 0.55);
+
   --font-serif: 'Instrument Serif', Georgia, serif;
   --font-sans: 'Geist', system-ui, -apple-system, 'Segoe UI', sans-serif;
   --font-mono: 'Geist Mono', ui-monospace, 'SF Mono', Menlo, monospace;

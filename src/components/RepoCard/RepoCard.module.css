@@ -1,10 +1,5 @@
 /* ---------- Tarjeta (estructura de GitHub + vidrio y halo propios) ---------- */
 .card {
-  /* Colores tomados del tema oscuro de GitHub */
-  --gh-link: #4493f8;
-  --gh-muted: #9198a1;
-  --gh-border: rgba(240, 246, 252, 0.16);
-
   --x: 50%;
   --y: 50%;
   --accent: var(--mint);
@@ -17,7 +12,7 @@
   padding: 16px;
   font: 400 12px/1.5 var(--font-sans);
   color: var(--gh-muted);
-  background: rgba(13, 17, 23, 0.55);
+  background: var(--gh-surface);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
   border: 1px solid var(--gh-border);
