@@ -3,6 +3,7 @@
 .main {
   position: relative;
   z-index: 2;
+  /* En escritorio el sitio ocupa exactamente una pantalla, sin scroll */
   height: 100vh;
   height: 100dvh;
   padding: clamp(24px, 5vw, 72px);
@@ -10,8 +11,8 @@
   grid-template-columns: minmax(0, 1fr) minmax(0, 620px);
   grid-template-rows: minmax(0, 1fr) auto;
   grid-template-areas:
-    'hero side'
-    'footer footer';
+    'hero repos'
+    'contact contributions';
   gap: clamp(28px, 4vh, 48px) clamp(32px, 5vw, 96px);
   pointer-events: none;
 }
@@ -20,24 +21,23 @@
   grid-area: hero;
 }
 
-/* Columna derecha: repos fijados + contribuciones, centrada sin pasarse de la pantalla */
-.side {
-  grid-area: side;
+/* Repos fijados: centrados en su fila, a la par del hero; scroll interno si la pantalla es baja */
+.repos {
+  grid-area: repos;
   align-self: center;
   min-height: 0;
   max-height: 100%;
-  display: flex;
-  flex-direction: column;
-  gap: clamp(20px, 3.5vh, 32px);
 }
 
-/* Los repos ceden alto (scroll interno) si la pantalla es baja */
-.repos {
-  min-height: 0;
+/* Fila inferior: banner de contacto y calendario, alineados por la base */
+.contact {
+  grid-area: contact;
+  align-self: end;
 }
 
-.footer {
-  grid-area: footer;
+.contributions {
+  grid-area: contributions;
+  align-self: end;
 }
 
 /* ---------- Pantallas angostas: una columna con scroll ---------- */
@@ -49,7 +49,8 @@
     grid-template-rows: auto;
     grid-template-areas:
       'hero'
-      'side'
-      'footer';
+      'repos'
+      'contributions'
+      'contact';
   }
 }

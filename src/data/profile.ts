@@ -10,12 +10,6 @@ export interface Tag {
   logoOnly?: boolean // el logo ya incluye el nombre: se oculta el texto
 }
 
-export interface ContactLink {
-  label: string
-  href: string
-  external?: boolean
-}
-
 export const profile = {
   name: "Alejo Ledesma",
   role: "Desarrollador de Software",
@@ -29,13 +23,17 @@ export const tags: Tag[] = [
   { id: "ci", name: "CI/CD", icon: "githubActions" },
 ]
 
-export const contactLinks: ContactLink[] = [
-  {
-    label: "LinkedIn",
-    href: "https://www.linkedin.com/in/alejoledesma/",
-    external: true,
-  },
-  { label: "Email", href: "mailto:aleledesma1212@gmail.com" },
-]
+// Datos de contacto
+export const contact = {
+  email: "aleledesma1212@gmail.com",
+  emailSubject: "Proyecto desde tu portfolio", // asunto precargado del botón principal
+  linkedinUrl: "https://www.linkedin.com/in/alejoledesma/",
+  githubUrl: `https://github.com/${githubUser}`,
+}
 
-export const githubUrl = `https://github.com/${githubUser}`
+// Textos del banner de contacto
+export const contactCta = {
+  status: "Disponible para nuevos proyectos",
+  title: "¿Tenés un proyecto en mente?",
+  action: "Escribime",
+}
