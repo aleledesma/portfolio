@@ -126,8 +126,7 @@
 }
 
 .stat,
-.statLink,
-.demo {
+.statLink {
   display: inline-flex;
   align-items: center;
   gap: 4px;
@@ -142,22 +141,13 @@
 }
 
 /* Enlaces del pie: por encima del enlace estirado, azules en hover como en GitHub */
-.statLink,
-.demo {
+.statLink {
   position: relative;
   z-index: 2;
   color: var(--gh-muted);
 }
 
-.statLink:hover,
-.demo:hover {
+.statLink:hover {
   color: var(--gh-link);
 }
 
-/* Toque propio: el acceso a la demo usa la mono de la app */
-.demo {
-  margin-left: auto;
-  font: 400 10.5px/1 var(--font-mono);
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-}
