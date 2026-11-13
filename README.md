@@ -1,6 +1,6 @@
 # Portfolio — Alejo Ledesma
 
-Portfolio personal: una landing de una sola pantalla con presentación, proyectos destacados de GitHub, calendario de contribuciones y contacto, sobre un fondo animado de matriz de puntos.
+Portfolio personal: una landing de una sola pantalla con presentación, proyectos destacados de GitHub, calendario de contribuciones y contacto.
 
 ## Stack
 
