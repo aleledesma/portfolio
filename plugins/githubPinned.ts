@@ -116,7 +116,7 @@ export function githubPinned({ usernames, token, limit = 6 }: GithubPinnedOption
         const logins = usernames.map((u) => u.trim()).filter(Boolean)
 
         if (logins.length === 0) {
-          this.warn('No hay usuario configurado (src/data/github.ts): no se mostrarán repos fijados.')
+          this.warn('Falta VITE_GITHUB_USER en .env: no se mostrarán repos fijados.')
         } else if (!token) {
           this.warn('Falta GITHUB_TOKEN en .env: no se mostrarán repos fijados.')
         } else {

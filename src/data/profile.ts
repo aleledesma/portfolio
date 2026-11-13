@@ -23,12 +23,12 @@ export const tags: Tag[] = [
   { id: "ci", name: "CI/CD", icon: "githubActions" },
 ]
 
-// Datos de contacto
+// Datos de contacto: se definen en .env (ver .env.example). Si falta alguno, su enlace no se muestra.
 export const contact = {
-  email: "aleledesma1212@gmail.com",
+  email: (import.meta.env.VITE_CONTACT_EMAIL ?? "").trim(),
   emailSubject: "Proyecto desde tu portfolio", // asunto precargado del botón principal
-  linkedinUrl: "https://www.linkedin.com/in/alejoledesma/",
-  githubUrl: `https://github.com/${githubUser}`,
+  linkedinUrl: (import.meta.env.VITE_LINKEDIN_URL ?? "").trim(),
+  githubUrl: githubUser ? `https://github.com/${githubUser}` : "",
 }
 
 // Textos del banner de contacto

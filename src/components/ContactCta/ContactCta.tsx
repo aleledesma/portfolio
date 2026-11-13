@@ -8,6 +8,7 @@ interface ContactCtaProps {
 
 // Banner de contacto: invita a escribir y agrupa email, LinkedIn y GitHub
 export function ContactCta({ className }: ContactCtaProps) {
+  const hasSocials = Boolean(contact.linkedinUrl || contact.githubUrl)
   const mailto = `mailto:${contact.email}?subject=${encodeURIComponent(contact.emailSubject)}`
 
   return (
@@ -20,7 +21,7 @@ export function ContactCta({ className }: ContactCtaProps) {
       <div className={styles.glow} aria-hidden="true" />
 
       <div className={styles.content}>
-        {/* Texto: estado y título */}
+        {/* Texto: título */}
         <div className={styles.text}>
           <h2 id="contact-cta-title" className={styles.title}>
             {contactCta.title}
@@ -29,31 +30,39 @@ export function ContactCta({ className }: ContactCtaProps) {
 
         {/* Acciones: botón principal + redes */}
         <div className={styles.actions}>
-          <a href={mailto} className={styles.primary} title={contact.email}>
-            <span>{contactCta.action}</span>
-            <ArrowIcon />
-          </a>
-          <span className={styles.divider} aria-hidden="true" />
-          <a
-            href={contact.linkedinUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="LinkedIn"
-            title="LinkedIn"
-            className={styles.social}
-          >
-            <BrandIcon name="linkedin" className={styles.socialIcon} />
-          </a>
-          <a
-            href={contact.githubUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="GitHub"
-            title="GitHub"
-            className={styles.social}
-          >
-            <BrandIcon name="github" className={styles.socialIcon} />
-          </a>
+          {contact.email && (
+            <>
+              <a href={mailto} className={styles.primary} title={contact.email}>
+                <span>{contactCta.action}</span>
+                <ArrowIcon />
+              </a>
+              {hasSocials && <span className={styles.divider} aria-hidden="true" />}
+            </>
+          )}
+          {contact.linkedinUrl && (
+            <a
+              href={contact.linkedinUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="LinkedIn"
+              title="LinkedIn"
+              className={styles.social}
+            >
+              <BrandIcon name="linkedin" className={styles.socialIcon} />
+            </a>
+          )}
+          {contact.githubUrl && (
+            <a
+              href={contact.githubUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="GitHub"
+              title="GitHub"
+              className={styles.social}
+            >
+              <BrandIcon name="github" className={styles.socialIcon} />
+            </a>
+          )}
         </div>
       </div>
     </section>

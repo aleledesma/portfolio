@@ -18,9 +18,10 @@ export default function App() {
       {/* Contenido: arriba hero + repos; abajo contacto + contribuciones */}
       <main className={styles.main}>
         <Hero className={styles.hero} />
-        <PinnedRepos username={githubUser} className={styles.repos} />
+        {/* Las secciones de GitHub solo se muestran si hay usuario configurado */}
+        {githubUser && <PinnedRepos username={githubUser} className={styles.repos} />}
         <ContactCta className={styles.contact} />
-        <ContributionGraph username={githubUser} className={styles.contributions} />
+        {githubUser && <ContributionGraph username={githubUser} className={styles.contributions} />}
       </main>
     </>
   )
