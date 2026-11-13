@@ -33,7 +33,6 @@ export const contact = {
 
 // Textos del banner de contacto
 export const contactCta = {
-  status: "Disponible para nuevos proyectos",
   title: "¿Tenés un proyecto en mente?",
   action: "Escribime",
 }
